@@ -10,7 +10,7 @@ class LawformerFormatter:
     def __init__(self, config, mode, *args, **params):
         self.max_len = config.getint("train", "max_len")
         self.mode = mode
-        self.tokenizer = AutoTokenizer.from_pretrained("hfl/chinese-roberta-wwm-ext", cache_dir="save")
+        self.tokenizer = AutoTokenizer.from_pretrained("hfl/chinese-roberta-wwm-ext", cache_dir="cache")
         self.mlm_prob = config.getfloat("train", "mlm_prob")
         self.data_collator = DataCollatorForLanguageModeling(tokenizer=self.tokenizer, mlm_probability=self.mlm_prob)
 
